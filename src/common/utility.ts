@@ -4,7 +4,7 @@ import {Conversation, ConversationFlavor} from '@grammyjs/conversations';
 interface SessionData {
   stage: number;
 }
-
+export const sleep = (ms:number) => new Promise(resolve => setTimeout(resolve, ms));
 export type MyContext = Context &
   SessionFlavor<SessionData> &
   ConversationFlavor;

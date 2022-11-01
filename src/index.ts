@@ -12,11 +12,33 @@ bot.use(
     initial: () => ({stage: 1}),
   })
 );
-bot.use(conversations());
-bot.use(createConversation(firstConversation, 'first_conversation'));
-bot.on('message', async ctx => {
-  try {
 
+const clear = 0;
+
+bot.use((ctx: MyContext, next) =>{
+  next();
+});
+
+bot.callbackQuery(texts.START.P1.CALLBACK_DATA, async ctx => {
+  console.log(ctx.from);
+  if (clear) {
+    return
+  }
+  if (ctx.session.stage>2) {
+    return
+  }
+  try {
+    await firstConversation(ctx);
+  } catch (error) {
+    console.log(error); 
+  }
+});  
+
+bot.on('message', async ctx => {  
+  if (clear) {
+    return;
+  }
+  try {
     if (ctx.session.stage === 1) {
       await ctx.replyWithPhoto(texts.START.P1.LINK, {
         caption: texts.START.P1.TEXT,
@@ -24,26 +46,17 @@ bot.on('message', async ctx => {
           inline_keyboard: [
             [
               {
-                text:  texts.START.P1.BUTTON.toUpperCase(),
-                callback_data:  texts.START.P1.BUTTON,
+                text: texts.START.P1.BUTTON.toUpperCase(),
+                callback_data: texts.START.P1.CALLBACK_DATA,
               },
             ],
           ],
         },
       });
-      ctx.session.stage++;
-  }
-  }
-  catch (e) {
+      ctx.session.stage = 2;
+    }
+  } catch (e) {
     console.log(e);
-  } 
-});
-
-bot.callbackQuery(texts.START.P1.BUTTON, async (ctx)=>{
-  try {
-    await ctx.conversation.enter('first_conversation');
-  } catch (error) {
-    console.log(error);
   }
 });
 
