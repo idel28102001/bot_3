@@ -3,7 +3,7 @@ import {Bot, session} from 'grammy';
 import {conversations, createConversation} from '@grammyjs/conversations';
 import {MyContext} from './common/utility';
 import {firstConversation} from './conversations/first-conversation';
-
+console.log('Бот запускается...');
 dotenv.config();
 const bot = new Bot<MyContext>(process.env.TOKEN || '');
 bot.use(
@@ -21,3 +21,4 @@ bot.on('message', async ctx => {
 });
 
 bot.start();
+console.log('Бот запущен');
