@@ -20,7 +20,6 @@ bot.use((ctx: MyContext, next) =>{
 });
 
 bot.callbackQuery(texts.START.P1.CALLBACK_DATA, async ctx => {
-  console.log(ctx.from);
   if (clear) {
     return
   }
