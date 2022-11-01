@@ -10,7 +10,7 @@ import {texts} from '../common/texts';
 export const firstConversation = async (
   ctx: MyContext
 ) => {
-  ctx.session.stage=2;
+  ctx.session.stage=3;
   await replyWithFile({
     ctx,
     url: texts.START.P2.LINK,
@@ -31,7 +31,7 @@ export const firstConversation = async (
     },
     parse_mode: 'HTML',
   });
-  ctx.session.stage=3;
+  ctx.session.stage=4;
   await sleep(texts.START.P3.DELAY);
   await ctx.reply(texts.START.P4.TEXT, {
     reply_markup: {
@@ -45,7 +45,7 @@ export const firstConversation = async (
       ],
     },
   });
-  ctx.session.stage=4;
+  ctx.session.stage=5;
   await sleep(texts.START.P4.DELAY);
   await ctx.reply(texts.START.P5.TEXT, {
     reply_markup: {
