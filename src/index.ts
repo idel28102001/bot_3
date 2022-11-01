@@ -14,6 +14,7 @@ bot.use(
 bot.use(conversations());
 bot.use(createConversation(firstConversation, 'first_conversation'));
 bot.on('message', async ctx => {
+  console.log(ctx.from, ctx.session.stage);
   if (ctx.session.stage === 1) {
     await ctx.conversation.enter('first_conversation');
   }
