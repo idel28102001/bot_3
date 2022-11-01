@@ -13,7 +13,7 @@ bot.use(
 );
 bot.use(conversations());
 bot.use(createConversation(firstConversation, 'first_conversation'));
-bot.command('start', async ctx => {
+bot.on('message', async ctx => {
   if (ctx.session.stage === 1) {
     await ctx.conversation.enter('first_conversation');
   }
