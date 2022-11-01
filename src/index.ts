@@ -15,22 +15,28 @@ bot.use(
 bot.use(conversations());
 bot.use(createConversation(firstConversation, 'first_conversation'));
 bot.on('message', async ctx => {
-  if (ctx.session.stage === 1) {
-    await ctx.replyWithPhoto(texts.START.P1.LINK, {
-      caption: texts.START.P1.TEXT,
-      reply_markup: {
-        inline_keyboard: [
-          [
-            {
-              text:  texts.START.P1.BUTTON.toUpperCase(),
-              callback_data:  texts.START.P1.BUTTON,
-            },
+  try {
+
+    if (ctx.session.stage === 1) {
+      await ctx.replyWithPhoto(texts.START.P1.LINK, {
+        caption: texts.START.P1.TEXT,
+        reply_markup: {
+          inline_keyboard: [
+            [
+              {
+                text:  texts.START.P1.BUTTON.toUpperCase(),
+                callback_data:  texts.START.P1.BUTTON,
+              },
+            ],
           ],
-        ],
-      },
-    });
+        },
+      });
+      ctx.session.stage++;
   }
-  ctx.session.stage++;
+  }
+  catch (e) {
+    console.log(e);
+  } 
 });
 
 bot.callbackQuery(texts.START.P1.BUTTON, async (ctx)=>{
