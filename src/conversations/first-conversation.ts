@@ -23,7 +23,7 @@ export const firstConversation = async (
     url: texts.START.P2.LINK,
     text: texts.START.P2.TEXT,
   });
-  await conversation.sleep(2000 || texts.START.P2.DELAY);
+  await conversation.sleep(texts.START.P2.DELAY);
   await ctx.reply(texts.START.P3.TEXT, {
     reply_markup: {
       inline_keyboard: [
@@ -36,9 +36,9 @@ export const firstConversation = async (
       ],
     },
   });
-  await conversation.sleep(2000 || texts.START.P3.DELAY);
+  await conversation.sleep(texts.START.P3.DELAY);
   await ctx.reply(texts.START.P4.TEXT);
-  await conversation.sleep(2000 || texts.START.P4.DELAY);
+  await conversation.sleep(texts.START.P4.DELAY);
   await ctx.reply(texts.START.P5.TEXT, {
     reply_markup: {
       inline_keyboard: [

@@ -27,13 +27,13 @@ export const texts = {
     P3: {
       CALLBACK_DATA: 'p3',
       LINK: 'https://t.me/pmfiles1/4',
-      YOUTUBE_LINK: 'https://www.youtube.com/watch?v=pYXP9A31YpI',
+      YOUTUBE_LINK: 'https://youtu.be/-GgtvUgGeEI',
       DELAY: 3 * 60 * 1000,
       TEXT: 'Продолжим, посмотри мое видео  где я рассказываю как с помощью пошагового плана начать обучение и устроится на работу. Для этого потребуется всего одна встреча.',
       BUTTON: 'Смотреть видео',
     },
     P4: {
-      YOUTUBE_LINK: 'https://www.youtube.com/watch?v=pYXP9A31YpI',
+      YOUTUBE_LINK: 'https://youtu.be/-GgtvUgGeEI',
       LINK: 'https://t.me/pmfiles1/4',
       DELAY: 15 * 60 * 1000,
       TEXT:
