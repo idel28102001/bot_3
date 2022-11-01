@@ -10,16 +10,6 @@ export const firstConversation = async (
   conversation: MyConversation,
   ctx: MyContext
 ) => {
-  console.log(1);
-  await selectCallbackData({
-    ctx,
-    conversation,
-    callbackData: texts.START.P1.CALLBACK_DATA,
-    text: texts.START.P1.TEXT,
-    buttonText: texts.START.P1.BUTTON.toUpperCase(),
-    link: texts.START.P1.LINK,
-  }).catch(e=>console.log(222,e));
-  console.log(2);
   await replyWithFile({
     ctx,
     url: texts.START.P2.LINK,
