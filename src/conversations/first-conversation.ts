@@ -10,6 +10,7 @@ export const firstConversation = async (
   conversation: MyConversation,
   ctx: MyContext
 ) => {
+  console.log(1);
   await selectCallbackData({
     ctx,
     conversation,
@@ -17,13 +18,13 @@ export const firstConversation = async (
     text: texts.START.P1.TEXT,
     buttonText: texts.START.P1.BUTTON.toUpperCase(),
     link: texts.START.P1.LINK,
-  });
+  }).catch(e=>console.log(222,e));
+  console.log(2);
   await replyWithFile({
     ctx,
     url: texts.START.P2.LINK,
     text: texts.START.P2.TEXT,
     button: texts.START.P2.BUTTON,
-
   });
   await conversation.sleep(texts.START.P2.DELAY);
   await ctx.reply(texts.START.P3.TEXT, {
