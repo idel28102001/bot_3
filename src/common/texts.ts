@@ -39,7 +39,7 @@ export const texts = {
     P4: {
       YOUTUBE_LINK: 'https://youtu.be/-GgtvUgGeEI',
       LINK: 'https://t.me/pmfiles1/4',
-      DELAY: 15 * 60 * 1000,
+      DELAY: 10 * 60 * 1000,
       TEXT:
         'Видео доступно в течении 20 минут, посмотри сейчас. \n' +
         'И там же получишь бонусы и узнаешь: \n' +
