@@ -1,28 +1,28 @@
 {
+  "name": "typeorm-sample",
+  "version": "0.0.1",
+  "description": "Awesome project developed with TypeORM.",
+  "type": "commonjs",
   "devDependencies": {
-    "@types/debug": "^4.1.7",
-    "@types/node": "^14.11.2",
-    "@types/node-fetch": "^2.6.2",
-    "eslint-plugin-json-format": "^2.0.1",
-    "gts": "^3.1.1",
-    "ts-node": "^10.9.1",
-    "typescript": "~4.7.0"
-  },
-  "scripts": {
-    "build": "tsc",
-    "dev": "eslint --fix --ext .ts ./src && nodemon",
-    "lint": "eslint --fix --ext .ts ./src",
-    "clean": "gts clean",
-    "compile": "tsc",
-    "fix": "gts fix",
-    "prepare": "npm run compile",
-    "pretest": "npm run compile",
-    "posttest": "npm run lint"
+    "@types/node": "^16.11.10",
+    "ts-node": "^10.7.0",
+    "typescript": "4.5.2"
   },
   "dependencies": {
-    "@grammyjs/conversations": "^1.0.3",
+    "date-fns": "^2.29.3",
     "dotenv": "^16.0.3",
-    "grammy": "^1.11.2",
-    "nodemon": "^2.0.20"
+    "grammy": "^1.12.0",
+    "nodemon": "^2.0.20",
+    "pg": "^8.4.0",
+    "reflect-metadata": "^0.1.13",
+    "typeorm": "0.3.10"
+  },
+  "scripts": {
+    "start": "ts-node src/index.ts",
+    "typeorm": "typeorm-ts-node-commonjs",
+    "migrate:create": "typeorm-ts-node-commonjs migration:create src/database/migrations/migration",
+    "migrate:generate": "npm run typeorm migration:generate src/database/migrations/migration -- -d src/database/data-source.ts",
+    "migrate:up": "npm run typeorm migration:run -- -d src/database/data-source.ts",
+    "typeorm:drop": "npm run typeorm migration:drop -- -d src/database/data-source.ts"
   }
 }
